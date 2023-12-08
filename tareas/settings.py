@@ -86,7 +86,7 @@ DATABASES = {
         'STORAGE_ENGINE': 'INNODB'
     },
     'bdut': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mygsql',
         'NAME': 'bdut',
         'USER': 'root',
         'PASSWORD': '',
