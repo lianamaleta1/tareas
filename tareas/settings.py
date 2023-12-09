@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'tareas.wsgi.application'
 
 DATABASES = {
     
-    'saget': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'saget',
         'USER': 'root',
@@ -86,7 +86,7 @@ DATABASES = {
         'STORAGE_ENGINE': 'INNODB'
     },
     'bdut': {
-        'ENGINE': 'django.db.backends.mygsql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bdut',
         'USER': 'root',
         'PASSWORD': '',
