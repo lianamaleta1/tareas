@@ -56,7 +56,6 @@ class Authitemchild(models.Model):
 
 
 class CategoriaDocumento(models.Model):
-    id = models.IntegerField(primary_key=True)
     categoria = models.CharField(max_length=150)
     descripcion = models.CharField(max_length=250)
     parent = models.IntegerField(blank=True, null=True)
@@ -68,7 +67,6 @@ class CategoriaDocumento(models.Model):
 
 
 class Documento(models.Model):
-    id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=250)
     descripcion = models.CharField(max_length=250)
     url = models.CharField(max_length=250)
@@ -107,7 +105,7 @@ class InfCump(models.Model):
 
 
 class Noticia(models.Model):
-    id = models.IntegerField(primary_key=True)
+    
     titulo = models.CharField(max_length=250)
     descripcion = models.CharField(max_length=500)
     autor = models.IntegerField()
@@ -333,7 +331,6 @@ class TareaPrincipalTrabajador(models.Model):
 
 
 class Test(models.Model):
-    id = models.IntegerField()
     id_tarea = models.IntegerField()
     cumplimiento = models.CharField(max_length=12)
     comentario = models.CharField(max_length=500, blank=True, null=True)
