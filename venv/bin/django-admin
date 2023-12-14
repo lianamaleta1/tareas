@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/liana/Público/django react/venv/bin/python3" "$0" "$@"
-' '''
+#!/home/liana/Público/djangoReact/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

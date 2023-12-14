@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
@@ -35,7 +33,6 @@ class Area(models.Model):
     class Meta:
         managed = False
         db_table = 'area'
-
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -107,16 +104,14 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Authassignment(models.Model):
-    itemname = models.ForeignKey('Authitem', models.DO_NOTHING, db_column='itemname', primary_key=True)
-    userid = models.CharField(max_length=64)
+    itemname = models.OneToOneField('Authitem', models.DO_NOTHING, db_column='name', primary_key=True)
+    userid = models.OneToOneField('Usuario',models.DO_NOTHING,max_length=64)
     bizrule = models.TextField(blank=True, null=True)
     data = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'authassignment'
-        unique_together = (('itemname', 'userid'),)
-
 
 class Authitem(models.Model):
     name = models.CharField(primary_key=True, max_length=64)
@@ -131,8 +126,8 @@ class Authitem(models.Model):
 
 
 class Authitemchild(models.Model):
-    parent = models.ForeignKey(Authitem, models.DO_NOTHING, db_column='parent', primary_key=True)
-    child = models.ForeignKey(Authitem, models.DO_NOTHING, db_column='child')
+    parent = models.OneToOneField('Authitem', models.DO_NOTHING, db_column='parent', primary_key=True, related_name='parent_items')
+    child = models.ForeignKey(Authitem, models.DO_NOTHING, db_column='child', related_name='child_items')
 
     class Meta:
         managed = False
@@ -289,7 +284,6 @@ class ExperienciaLaboral(models.Model):
 
 class HisArea(models.Model):
     fecha_his = models.DateField()
-    id = models.IntegerField()
     nombre = models.CharField(max_length=100)
     siglas = models.CharField(max_length=10)
     padre = models.IntegerField(blank=True, null=True)
