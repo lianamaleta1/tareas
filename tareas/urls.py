@@ -19,10 +19,10 @@ from django.urls import path, include
 from django.contrib.auth.views import *
 from django.conf.urls import *
 from django.conf.urls.static import static
-from . import views
+from .urls import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('components/',include('components.urls'))
+    path('',include('components.urls'))
     
 ]
