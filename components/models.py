@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 
 # Create your models here.
@@ -199,6 +200,11 @@ class Grupo(models.Model):
     class Meta:
         managed = False
         db_table = 'grupo'
+        verbose_name='Grupo de trabajadores'
+        verbose_name_plural='Grupos de trabajo'
+        
+    def __str__(self):
+        return self.grupo
 
 
 class InfCump(models.Model):
@@ -347,7 +353,13 @@ class Tarea(models.Model):
     class Meta:
         managed = False
         db_table = 'tarea'
-
+        verbose_name= 'Tarea'
+        verbose_name_plural = 'Tareas'
+    
+    #para que aparezcan legible el nombre
+    def __str__(self):
+        return self.nombre
+   
 
 class TareaColectiva(models.Model):
     id_tarea = models.IntegerField()
@@ -408,7 +420,11 @@ class TareaIndividual(models.Model):
     class Meta:
         managed = False
         db_table = 'tarea_individual'
-
+        verbose_name= 'Tarea individual'
+        verbose_name_plural = 'Tareas individuales'
+        
+    def __str__(self):
+        return self.id_tarea.nombre
 
 class TareaPgIndividual(models.Model):
     id_tarea_pg = models.ForeignKey('TareaPrincipal', models.DO_NOTHING, db_column='id_tarea_pg')
@@ -426,6 +442,11 @@ class TareaPrincipal(models.Model):
     class Meta:
         managed = False
         db_table = 'tarea_principal'
+        verbose_name= 'Tarea principal'
+        verbose_name_plural = 'Tareas principales'
+    
+    def __str__(self):
+        return self.titulo
 
 
 class TareaPrincipalTrabajador(models.Model):
