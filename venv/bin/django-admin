@@ -1,4 +1,4 @@
-#!/home/liana/Público/djangoReact/venv/bin/python3
+#!/home/liana/Público/Miproyecto/djangoReact/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

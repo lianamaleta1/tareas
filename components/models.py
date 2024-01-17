@@ -1,5 +1,6 @@
 from typing import Any
 from django.db import models
+from .models import *
 
 # Create your models here.
 
@@ -297,6 +298,9 @@ class Proyecto(models.Model):
     class Meta:
         managed = False
         db_table = 'proyecto'
+        
+    def __str__(self):
+        return self.nombre_proyecto
 
 
 class ProyectoParticipante(models.Model):
@@ -345,7 +349,8 @@ class Tarea(models.Model):
     contable = models.CharField(max_length=2, blank=True, null=True)
     extra = models.CharField(max_length=2)
     motivo = models.CharField(max_length=500, blank=True, null=True)
-    id_tarea_pg = models.ForeignKey('TareaPrincipal', models.DO_NOTHING, db_column='id_tarea_pg', blank=True, null=True)
+    id_tarea_pg = models.ForeignKey('TareaPrincipal', models.DO_NOTHING, db_column='id_tarea_pg', max_length=500, blank=True, null=True)
+    
     creada_por = models.CharField(max_length=8)
     gestor = models.CharField(max_length=11, blank=True, null=True)
     id_proy = models.ForeignKey(Proyecto, models.DO_NOTHING, db_column='id_proy', blank=True, null=True)
@@ -424,7 +429,7 @@ class TareaIndividual(models.Model):
         verbose_name_plural = 'Tareas individuales'
         
     def __str__(self):
-        return self.id_tarea.nombre
+        return self.id_tarea
 
 class TareaPgIndividual(models.Model):
     id_tarea_pg = models.ForeignKey('TareaPrincipal', models.DO_NOTHING, db_column='id_tarea_pg')
