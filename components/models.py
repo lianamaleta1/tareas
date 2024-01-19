@@ -350,7 +350,6 @@ class Tarea(models.Model):
     extra = models.CharField(max_length=2)
     motivo = models.CharField(max_length=500, blank=True, null=True)
     id_tarea_pg = models.ForeignKey('TareaPrincipal', models.DO_NOTHING, db_column='id_tarea_pg', max_length=500, blank=True, null=True)
-    
     creada_por = models.CharField(max_length=8)
     gestor = models.CharField(max_length=11, blank=True, null=True)
     id_proy = models.ForeignKey(Proyecto, models.DO_NOTHING, db_column='id_proy', blank=True, null=True)
@@ -531,3 +530,6 @@ class Usuario(models.Model):
     class Meta:
         managed = False
         db_table = 'usuario'
+        
+    def __str__(self):
+        return self.username
