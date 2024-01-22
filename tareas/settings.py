@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'components',
     'users',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tareas.wsgi.application'
 
+#For React
+CORS_ORIGIN_WHITELIST='http://localhost:3000'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -135,13 +138,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+STATIC_URL = '/static/'
+
 
 #Static files(photos)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media_tareas/'
+MEDIA_URL = '/media/'
 
+#Configuration to restframework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
+}
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'templates'),

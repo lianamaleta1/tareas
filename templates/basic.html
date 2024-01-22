@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% block title%}SAGET {% endblock %}
+  </title>
+   
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    
+</head>
+<body>
+  <header>
+      
+    <div class="menu_bar">
+     
+    </div>
+    <section class="wrapper">
+      
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Tareas</a></li>
+          <li><a href="#">Cursos</a></li>
+          <li><a href="#">Preguntame algo</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+      </section>
+  
+  </header>
+  {% block content %}
+
+  {% endblock %}
+
+  <footer id="foot">
+    <img id="etecs" src="{% static 'img/etecsa2.png'%}" >
+  </footer>
+</body>
+
