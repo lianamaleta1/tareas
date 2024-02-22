@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% block title%}SAGET {% endblock %}
+  </title>
+   
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    
+</head>
+
+<body>
+    {% block content %}
+<form action="#login" class="Form">
+    <h1 class="Form-title">AUTENTICACIÓN</h1>
+   
+    <div class="Form-fields">
+        <input type="email"
+               id="email"
+               class="ControlInput ControlInput--email"
+               placeholder=" "
+               required
+        >
+        <label for="email"
+               class="Control-label Control-label--email"
+        >Usuario</label>
+       
+  
+          <!-- this is here to give power to the :checked css selector -->
+          <input type="checkbox"
+                 id="show-password"
+                 class="show-password"
+          >
+      
+          <label for="show-password"
+                 class="Control-label Control-label--showPassword"
+          >
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" class="svg-toggle-password" title="Toggle Password Security">
+              <title>Hide/Show Password</title>
+              
+              
+            </svg>
+          </label>
+      
+          <input type="text"
+                 id="password"
+                 placeholder=" "
+                 autocomplete="off"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern=".{6,}"
+                 class="ControlInput ControlInput--password"
+          >
+  
+          <label for="password"
+                 class="Control-label Control-label--password"
+          >Contraseña</label>
+      
+          <div class="Control-requirements">
+            Must contain at least 6 characters. We did this for your own sake.
+          </div>
+        
+          <label><input type="checkbox" id="cbox1" value="first_checkbox" /> Autenticarse usando LDAP </label>
+           <div class="col-lg-12">&nbsp;</div>
+          <button type="submit" class="Button Form-submit">Entrar </button>
+      
+          <img id="etecs" src="{% static 'img/unnamed.jpg'%}" style="width: 25%; position: relative; left: 136px;top: 10px;" >
+    </div>
+  </form>
+{% endblock %}
+</body>
