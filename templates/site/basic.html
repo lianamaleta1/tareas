@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Portal Ejecutivo</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+        <!-- Favicons -->
+
+        <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+        <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/css2.css' %}" >
+        <!-- Vendor CSS Files -->
+
+        <link href="{% 'css/ao.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/select2/select2.min.css' %}" rel="stylesheet">
+        <link href="{% 'vendor/select2/select2.min.css' %}" rel="stylesheet">
+        <link href="{% 'css/simple-iconpicker.min.css' %} " rel="stylesheet">
+
+        <!-- Template Main CSS Files -->
+        <link href="{% 'css/variables.css' %}" rel="stylesheet">
+        <link href="{% 'css/other.css' %}" rel="stylesheet">
+        <link href="{% 'css/main.css' %}" rel="stylesheet">
+    </head>
+<body>
+  <header>
+
+      <header id="headerloco" class="header d-flex align-items-center fixed-top" style="background-color:#27176e;height: 130px;background-image: url('images/back3.jpg');background-repeat: no-repeat;background-attachment: inherit;background-position: center;background-size: cover;">
+      
+    <div class="menu_bar">
+     
+    </div>
+    <section class="wrapper">
+      
+      <nav>
+        <ul>
+          <li><a href="#">Reportes</a></li>
+          <li><a href="#">Proyectos</a>
+            <!--<ul> 
+              <li><a href="#">Informe de cumplimiento coclectivo</a></li>
+                
+             
+            </ul>-->
+          </li>
+          <li><a href="#">Tareas</a></li>
+          <li><a href="#">Objetivos Principales</a></li>
+        </ul>
+      </nav>
+      </section>
+
+  </header>
+  {% block content %}
+
+  {% endblock %}
+
+  <!--<footer id="foot">
+    <img id="etecs" src="{% static 'img/etecsa2.png'%}" >
+  </footer>-->
+</body>
+
