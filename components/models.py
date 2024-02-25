@@ -131,6 +131,9 @@ class Cargo(models.Model):
         managed = False
         db_table = 'cargo'
 
+    def __str__(self):
+        return self.nombre
+
 
 class CategoriaDocumento(models.Model):
     categoria = models.CharField(max_length=150)
@@ -140,6 +143,8 @@ class CategoriaDocumento(models.Model):
     class Meta:
         managed = False
         db_table = 'categoria_documento'
+    def __str__(self):
+        return self.categoria
 
 
 class CategoriaIndicadores(models.Model):
@@ -150,6 +155,9 @@ class CategoriaIndicadores(models.Model):
     class Meta:
         managed = False
         db_table = 'categoria_indicadores'
+
+    def __str__(self):
+        return self.nombre_cat
 
 
 class DjangoAdminLog(models.Model):
@@ -206,12 +214,15 @@ class Documento(models.Model):
     gestor_doc = models.CharField(max_length=100)
     fecha_sub = models.DateField()
     hora_sub = models.TimeField()
-    id_categoria = models.IntegerField()
+    id_categoria = models.ForeignKey(CategoriaDocumento, models.DO_NOTHING, db_column='id_categoria')
 
     class Meta:
         managed = False
+        ordering =["-fecha_sub","-hora_sub"]
         db_table = 'documento'
 
+    def __str__(self):
+        return self.nombre
 
 class Evento(models.Model):
     nombre = models.CharField(max_length=250)
@@ -239,17 +250,22 @@ class Galleta(models.Model):
 
 
 class IndicadorValor(models.Model):
-    id_indicador = models.IntegerField()
+
     valor = models.CharField(max_length=50)
     plan = models.CharField(max_length=50, blank=True, null=True)
     mes = models.IntegerField()
     anno = models.IntegerField()
     fecha_carga = models.DateField()
     nivel = models.CharField(max_length=50)
+    id_indicador = models.ForeignKey('Meta', models.DO_NOTHING, db_column='id_indicador')
 
     class Meta:
         managed = False
         db_table = 'indicador_valor'
+        ordering = ["-fecha_carga"]
+
+    def __str__(self):
+        return self.id_indicador.nombre
 
 
 class Meta(models.Model):
@@ -257,9 +273,9 @@ class Meta(models.Model):
     codigo = models.CharField(max_length=50)
     nombre = models.CharField(max_length=250)
     descripcion = models.CharField(max_length=250)
-    tipo = models.CharField(max_length=100)
+    tipo = models.ForeignKey(CategoriaIndicadores, models.DO_NOTHING, db_column='tipo')
     comportamiento = models.CharField(max_length=50)
-    um = models.CharField(max_length=100)
+    um = models.ForeignKey('UnidadMedida', models.DO_NOTHING, db_column='um')
     formato = models.IntegerField()
     estado = models.IntegerField()
     formula = models.CharField(max_length=100, blank=True, null=True)
@@ -269,6 +285,8 @@ class Meta(models.Model):
     class Meta:
         managed = False
         db_table = 'meta'
+    def __str__(self):
+        return self.nombre
 
 
 class Mision(models.Model):
@@ -293,7 +311,8 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=1000)
     resumen = models.CharField(max_length=1000)
     contenido = models.CharField(max_length=5000)
-    fecha_creacion = models.CharField(max_length=100)
+    fecha_creacion = models.DateField()
+    hora_creacion=models.TimeField()
     creado_por = models.CharField(max_length=100)
     foto = models.CharField(max_length=250, blank=True, null=True)
     publica = models.CharField(max_length=11, blank=True, null=True)
@@ -302,6 +321,10 @@ class Noticia(models.Model):
     class Meta:
         managed = False
         db_table = 'noticia'
+        ordering = ["-fecha_creacion", "-hora_creacion"]
+
+    def __str__(self):
+        return self.titulo
 
 
 class Notificacion(models.Model):
@@ -310,14 +333,18 @@ class Notificacion(models.Model):
     notif_estado = models.IntegerField()
     notif_url = models.CharField(max_length=250)
     notif_tipo = models.CharField(max_length=20)
+    #notif_usuario=models.ManyToManyField('Usuario')
 
     class Meta:
         managed = False
         db_table = 'notificacion'
+        ordering = ["-notif_fecha"]
+    def __str__(self):
+        return self.notif_descripcion
 
 
 class NotificacionUsuario(models.Model):
-    id_usuario = models.IntegerField()
+    id_usuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_usuario')
     id_notifcacion = models.ForeignKey(Notificacion, models.DO_NOTHING, db_column='id_notifcacion')
     fecha_vis = models.CharField(max_length=20)
     estado_vis = models.IntegerField()
@@ -402,6 +429,7 @@ class Trazas(models.Model):
     class Meta:
         managed = False
         db_table = 'trazas'
+        ordering = ["-fecha","-hora"]
 
 
 class UnidadMedida(models.Model):
@@ -412,6 +440,8 @@ class UnidadMedida(models.Model):
     class Meta:
         managed = False
         db_table = 'unidad_medida'
+    def __str__(self):
+        return self.um_nombre
 
 
 class Usuario(models.Model):
@@ -427,7 +457,8 @@ class Usuario(models.Model):
     class Meta:
         managed = False
         db_table = 'usuario'
-
+    def __str__(self):
+        return self.username
 
 class Valor(models.Model):
     nombre = models.CharField(max_length=1500)
