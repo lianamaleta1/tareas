@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'site/basic.html' %}
 
-</body>
-</html>
+
+{% block content %}
+{% if listado %}
+    <div class="table-responsive">
+         <table class="table table-striped">
+              <thead class="table-light">
+                    <tr>
+                        {% for field in listado.first|dictsort %}
+                    <th>{{ field.0 }}</th>
+                {% endfor %}
+                    </tr>
+              </thead>
+              <tbody>
+                   {% for item in listado %}
+                <tr>
+                    {% for field, value in item|dictsort %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+              </tbody>
+
+         </table>
+    </div>
+
+{% else %}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+             No hay resultados
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
+

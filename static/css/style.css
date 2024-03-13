@@ -16,7 +16,7 @@
     position: fixed;
     z-index: 10;
   }
-  
+
   nav {
     float: left; /* Desplazamos el nav hacia la izquierda */
   }

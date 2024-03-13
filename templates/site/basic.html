@@ -10,60 +10,132 @@
         <!-- Favicons -->
 
         <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-        <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+        <link href="{% static '/img/favicon.png' %}" rel="apple-touch-icon">
 
         <!-- Google Fonts -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+
         <link rel="stylesheet" href="{% static 'css/css2.css' %}" >
         <!-- Vendor CSS Files -->
 
-        <link href="{% 'css/ao.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/select2/select2.min.css' %}" rel="stylesheet">
-        <link href="{% 'vendor/select2/select2.min.css' %}" rel="stylesheet">
-        <link href="{% 'css/simple-iconpicker.min.css' %} " rel="stylesheet">
+
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/simple-iconpicker.min.css' %} " rel="stylesheet">
 
         <!-- Template Main CSS Files -->
-        <link href="{% 'css/variables.css' %}" rel="stylesheet">
-        <link href="{% 'css/other.css' %}" rel="stylesheet">
-        <link href="{% 'css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+        <link href="{% static 'css/variables.css' %}" rel="stylesheet">
+        <link href="{% static 'css/other.css' %}" rel="stylesheet">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
     </head>
 <body>
-  <header>
+<!-- =======
+pRIMERO VER Q ESTE AUTENTICADO
+INPRIMIR LA VARIABLE DE LAS NOTIFICACIONES  ======= -->
+<!-- ======= Header ======= -->
+     <div id="headerloco" style="background-color:#27176e;height: 150px;background-image: url('/static/img/back3.jpg');background-repeat: no-repeat;background-attachment: inherit;background-position: center;background-size: cover;">
+       <div class="row" style="width: 100%;">
+           <div class="col-md-12">
+                    <p style="font-size: 40px;margin-top: -15px;text-align:center;font-weight: 700;text-transform: uppercase;font-size: 42px;color: #ffffff;margin-top: 10px;text-shadow: 2px 2px 4px #000000;">Portal Ejecutivo</p>
+           </div>
+            <div class="col-md-12">
 
-      <header id="headerloco" class="header d-flex align-items-center fixed-top" style="background-color:#27176e;height: 130px;background-image: url('images/back3.jpg');background-repeat: no-repeat;background-attachment: inherit;background-position: center;background-size: cover;">
-      
-    <div class="menu_bar">
-     
-    </div>
-    <section class="wrapper">
-      
-      <nav>
-        <ul>
-          <li><a href="#">Reportes</a></li>
-          <li><a href="#">Proyectos</a>
-            <!--<ul> 
-              <li><a href="#">Informe de cumplimiento coclectivo</a></li>
-                
-             
-            </ul>-->
-          </li>
-          <li><a href="#">Tareas</a></li>
-          <li><a href="#">Objetivos Principales</a></li>
-        </ul>
-      </nav>
-      </section>
+            <div class="container-fluid d-flex align-items-center justify-content-between" style="width: 100%;background-color: #27176e;height: 50px;margin-top: 9px;">
 
-  </header>
-  {% block content %}
+                <a href="#" class="logo d-flex align-items-center">
+                    <img src="/static/img/etecsa.png" alt="" style="width: 160px;border-radius: 5px;">
+                </a>
 
-  {% endblock %}
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li class="dropdown"><a><span style="color:white">SERVICIOS</span> <i style="color:white" class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li class="dropdown"><a href="#"><span><i class="bi bi-clipboard-data-fill"></i> Indicadores Empresariales</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                                    <ul>
+                                        <li><a href="#">Generales</a></li>
+                                        <li><a href="#">Capital Humano</a></li>
+                                        <li><a href="#">Económicos</a></li>
+                                        <li><a href="#">Móvil</a></li>
+                                        <li><a href="#">Fijo</a></li>
+                                        <li><a href="#">Datos e Internet - Fijo</a></li>
+                                        <li><a href="#">Datos e Internet - Móvil</a></li>
+                                        <li><a href="#">Comercio Electrónico</a></li>
 
-  <!--<footer id="foot">
-    <img id="etecs" src="{% static 'img/etecsa2.png'%}" >
-  </footer>-->
+                                    </ul>
+                                </li>
+                                <li><a href="#>"><span><i class="bi bi-file-earmark-easel"></i> Archivo Digital</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a><span style="color:white">REPORTES</span> <i style="color:white" class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#"><span><i class="bi bi-file-earmark-slides"></i> Presentación Institucional</span></a></li>
+                                <li><a href="#"><span><i class="bi bi-grid-1x2-fill"></i> Reporte Visual</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a><span style="color:white">BOLETINES</span> <i style="color:white" class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#"><span><i class="bi bi-newspaper"></i> Boletín de Telecomunicaciones</span></a></li>
+                                <li><a href="#"><span><i class="bi bi-journal-richtext"></i> Boletín Ejecutivo</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><span style="color:white">OBSERVATORIO</span></a></li>
+                        <!--Qeue el usurio administrador tenga solo acceso a este link-->
+                        <li><a href="#"><span style="color:white">ADMINISTRACIÓN</span></a></li>
+
+                       <!--if(cant_notif>0){ -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link nav-icon show" href="#" data-bs-toggle="dropdown" aria-expanded="true" style="color: white;">
+                                        <i class="bi bi-bell" style="font-size: 25px;"></i>
+                                        <span id="contador" class="badge bg-danger badge-number"><?=$cant_notif?></span>
+
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications show" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-25px, 35px);" data-popper-placement="bottom-end">
+                                        <li class="dropdown-header">
+
+                                             <!-- Tiene <?=$cant_notif?> nuevas notificaciones and puth link of notificactions-->
+
+                                            <a href="#" >
+
+                                            <span class="badge rounded-pill bg-success p-2 ms-2">Ver Detalles</span></a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+
+                        <li class="dropdown"><a href="#"><span style="color:white"><img style="height: 40px;border-radius: 50px;" src="#" alt=""> </span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                              <!--  <li><a href="<?//=CController::createUrl('/usuario/modify')?>">Cambiar Contraseña</a></li>-->
+                                <li><a href="#">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                 <div class="position-relative">
+                    <a href="#" class="mx-2 js-search-open"></a>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                    <!-- ======= Search Form ======= -->
+                    <div class="search-form-wrap js-search-form-wrap">
+                        <form action="search-result.html" class="search-form">
+                            <button class="btn js-search-close"></button>
+                        </form>
+                    </div><!-- End Search Form -->
+                </div>
+
+                </div>
+        </div>
+        </div>
+
+     </div>
+
+{% block content %}{% endblock %}
+
+
 </body>
+</html>
 
