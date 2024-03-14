@@ -1,6 +1,10 @@
 from django.shortcuts import render,redirect
 from .models import *
+from .serializers import *
 from django.db import connection
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 
 # Create your views here.
 def header(request):
@@ -29,5 +33,12 @@ def listarIndicadores(request):
     return render(request,'metas/listado.html',{'listado':listado,'hello':hello})
 
 
+class MetaAPIView(APIView):
 
+    def get(self,*args,**kwargs):
 
+        quantity = int(self.kwargs["quantity"])#esto es para la paginacion
+        meta=Meta.objects.filter(estado=1)[:quantity]
+        serializer=MetaSerializer(meta,many =True)
+
+        return Response(serializer.data)

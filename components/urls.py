@@ -1,16 +1,18 @@
 from django.urls import path
-from . import views
 from rest_framework import routers
 from .api import MetaViewset
+from .views import MetaAPIView
+from components import views
 
 routers=routers.DefaultRouter()
 routers.register('apiprueba',MetaViewset,'metaset')
 
-urlpatterns = routers.urls
+app_name = 'components'
 
-'''urlpatterns = [
+urlpatterns = [
     #path('actualizar/<int:id>', views.actualizar, name='actualizar'),
     path('header/', views.header, name='encabezado'),
     path('listarIndicadores/', views.listarIndicadores, name='listarIndicadores'),
+    path('listadoMeta/<int:quantity>/',MetaAPIView.as_view(), name='listarmeta')
 
-]'''
+]
